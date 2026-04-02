@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hamm Family</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+</head>
+<body>
+    <!-- IBM Carbon-style Header -->
+    <header class="carbon-header">
+        <div class="header-content">
+            <h1 class="header-title">The Hamm Family</h1>
+            <nav class="header-nav">
+                <a href="https://recipes.virginiahamms.com/" class="nav-link">Recipes</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="background-container">
+            <img src="background.jpg" alt="Background" class="background-image">
+        </div>
+        
+        <!-- 3D Model Viewer -->
+        <div class="model-container">
+            <model-viewer
+                src="pigs_fly.glb"
+                alt="Flying Pigs 3D Model"
+                camera-controls
+                touch-action="pan-y"
+                auto-rotate
+                rotation-per-second="30deg"
+                interaction-prompt="none"
+                shadow-intensity="0"
+                camera-orbit="0deg 75deg 4m"
+                min-camera-orbit="auto auto 2.5m"
+                max-camera-orbit="auto auto 12m"
+                field-of-view="55deg"
+            >
+                <div class="model-loading" slot="poster">
+                    <div class="loading-spinner"></div>
+                </div>
+            </model-viewer>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

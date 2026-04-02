@@ -1,0 +1,193 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    overflow: visible;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* IBM Carbon-style Header */
+.carbon-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    background-color: #161616;
+    z-index: 1000;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 16px;
+    max-width: 100%;
+}
+
+.header-title {
+    color: #f4f4f4;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.16px;
+    line-height: 18px;
+    margin: 0;
+}
+
+.header-nav {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.nav-link {
+    color: #f4f4f4;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 11px 16px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.11s cubic-bezier(0.2, 0, 0.38, 0.9);
+    display: inline-block;
+    line-height: 18px;
+}
+
+.nav-link:hover {
+    background-color: #262626;
+    border-bottom-color: #0f62fe;
+}
+
+.nav-link:active {
+    background-color: #393939;
+}
+
+/* Main Content */
+.main-content {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 48px;
+}
+
+/* Background */
+.background-container {
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 48px);
+    overflow: visible;
+    z-index: 1;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* 3D Model Container */
+.model-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: none;
+    z-index: 10;
+    margin-top: 24px;
+    overflow: visible;
+    pointer-events: none;
+}
+
+model-viewer {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    --poster-color: transparent;
+    overflow: visible;
+    pointer-events: auto;
+}
+
+/* Loading Spinner */
+.model-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #0f62fe;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .model-container {
+        width: 90vw;
+        height: 70vh;
+        max-width: none;
+        max-height: none;
+    }
+
+    .header-title {
+        font-size: 12px;
+    }
+
+    .nav-link {
+        font-size: 12px;
+        padding: 11px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-content {
+        padding: 0 12px;
+    }
+
+    .header-title {
+        font-size: 11px;
+    }
+
+    .nav-link {
+        font-size: 11px;
+        padding: 11px 8px;
+    }
+
+    .model-container {
+        width: 95vw;
+        height: 65vh;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    model-viewer {
+        /* Better touch interaction on mobile */
+        touch-action: pan-y;
+    }
+}
+
+/* Made with Bob */
